@@ -46,8 +46,18 @@ git clone https://aur.archlinux.org/fhc.git && cd fhc && makepkg -si
 ```
 cat hosts.txt | fhc
 ```
-* If you want to see only the HTTP host with 200-299 codes:
+* If you want to see only the hosts answering with specific status codes:
 ```
-cat hosts.txt | fhc -2
+cat hosts.txt | fhc -f 200,204
 ```
-You can tune the `--timeout`, `-t/--threads`, `-u/--user-agent` and other options according to your needs. See `fhc --help`
+* Or to leave some out:
+```
+cat hosts.txt | fhc -e 404,500
+```
+* To also show the status code and the final URL:
+```
+cat hosts.txt | fhc -s
+```
+Each host is tried over HTTPS first and only then over plain HTTP. You can tune
+the `--timeout`, `-t/--threads`, `-r/--retries` and other options according to
+your needs. See `fhc --help`

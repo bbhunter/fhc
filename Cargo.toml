@@ -1,8 +1,8 @@
 [package]
 name = "fhc"
-version = "0.9.1"
+version = "0.10.0"
 authors = ["Eduard Tolosa <edu4rdshl@protonmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "Fast HTTP Checker."
 repository = "https://github.com/edu4rdshl/fhc"
 license = "GPL-3.0-or-later"
@@ -12,18 +12,13 @@ readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "1.47.0", features = ["full", "io-util"] }
-futures = "0.3.31"
-clap = { version = "4.5.41", features = ["derive"] }
-reqwest = { version = "0.12.22", features = [
-    "hickory-dns",
-    "rustls-tls",
-    "native-tls",
-] }
-openssl = { version = "0.10.73", features = ["vendored"] }
-rand = "0.9.2"
-scraper = "0.23.1"
-async-recursion = "1.1.1"
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "io-std", "io-util"] }
+futures = "0.3.34"
+clap = { version = "4.6.6", features = ["derive"] }
+reqwest = { version = "0.13.4", features = ["hickory-dns", "native-tls"] }
+openssl = { version = "0.10.81", features = ["vendored"] }
+rand = "0.10.2"
+scraper = "0.27.0"
 
 [profile.release]
 lto = true
